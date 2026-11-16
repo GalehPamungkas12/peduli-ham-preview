@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Peduli Hankam — Ruang Solidaritas & Aksi Nyata Warga</title>
+    <meta name="description" content="Peduli HAM lahir sebagai rumah bersama bagi siapa saja yang ingin mengambil peran dalam menjaga martabat kemanusiaan lewat langkah yang nyata, terukur, dan...">
+    <meta name="theme-color" content="#FAF7F2">
+
+    <!-- PENTING: Mencegah pemblokiran gambar pihak ketiga saat di localhost -->
+    <meta name="referrer" content="no-referrer">
+
+     <link rel="icon" href="images/logo.png"> 
+    <!-- Font Pairing Editorial: DM Serif Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="antialiased selection:bg-[#C4421A] selection:text-white">
+
+<!-- Top Progress Indicator Halus -->
+<div id="scrollBar" class="fixed left-0 top-0 z-[70] h-[3px] w-0 bg-[#C4421A] transition-[width] duration-150"></div>
+
+
+
+
+<header id="siteNav" class="hn">
+
+<div class="hn-shell">
+    <div class="hn-bar">
+        
+        <a href="#beranda" class="hn-brand" aria-label="Beranda Peduli Hankam">
+                            <img src="images/logo.png" alt="Logo Peduli Hankam" referrerpolicy="no-referrer" class="hn-logo"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+                        <span class="hn-emblem" aria-hidden="true" style="display:none">P</span>
+            <span class="hn-brand-text">
+                <span class="hn-brand-name">peduli hankam<b>.</b></span>
+            </span>
+        </a>
+
+        
+        <nav class="hn-menu" aria-label="Navigasi Utama">
+            <span class="hn-ind" aria-hidden="true"></span>
+            <a href="#tentang" class="hn-link">Tentang</a>
+            <a href="#metrik"  class="hn-link">Dampak</a>
+            <a href="#pilar"   class="hn-link">4 Pilar</a>
+            <a href="#wicara"  class="hn-link">Ruang Wicara</a>
+            <a href="#riset"   class="hn-link">Riset</a>
+            <a href="#faq"     class="hn-link">FAQ</a>
+        </nav>
+
+        
+        <div class="hn-actions">
+            <a href="#kontak" class="hn-cta">
+                <span>Ambil Bagian</span>
+                <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></i>
+            </a>
+            <button type="button" class="hn-burger" id="hamburger" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileDrawer">
+                <i></i><i></i><i></i>
+            </button>
+        </div>
+
+        <span class="hn-progress" id="hnProgress" aria-hidden="true"></span>
+    </div>
+
+    
+    <div class="hn-panel" id="mobileDrawer" aria-hidden="true">
+        <nav class="hn-panel-inner" aria-label="Navigasi Seluler">
+                        <a href="#tentang" class="hn-plink" style="--i:0"><span class="n">01</span><span class="t">Tentang</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#metrik"  class="hn-plink" style="--i:1"><span class="n">02</span><span class="t">Dampak</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#pilar"   class="hn-plink" style="--i:2"><span class="n">03</span><span class="t">4 Pilar Gerakan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#wicara"  class="hn-plink" style="--i:3"><span class="n">04</span><span class="t">Ruang Wicara</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#riset"   class="hn-plink" style="--i:4"><span class="n">05</span><span class="t">Riset &amp; Catatan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#faq"     class="hn-plink" style="--i:5"><span class="n">06</span><span class="t">Tanya Jawab</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+            <a href="#kontak" class="hn-pcta" style="--i:6">
+                <span>Ambil Bagian Sekarang</span>
+                <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></i>
+            </a>
+        </nav>
+    </div>
+</div>
+
+<div class="hn-scrim" id="hnScrim" aria-hidden="true"></div>
+
+<script>
+(function () {
+    var nav = document.getElementById('siteNav');
+    var btn = document.getElementById('hamburger');
+    var drawer = document.getElementById('mobileDrawer');
+    var scrim = document.getElementById('hnScrim');
+    if (!nav || !btn || !drawer) return;
+
+    var desktop = window.matchMedia('(min-width: 1100px)');
+
+    // ── Buka / tutup menu HP ──
+    function toggleMenu(open) {
+        nav.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Tutup Menu' : 'Buka Menu');
+        drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+        document.documentElement.classList.toggle('hn-lock', open);
+    }
+    btn.addEventListener('click', function () { toggleMenu(!nav.classList.contains('is-open')); });
+    if (scrim) scrim.addEventListener('click', function () { toggleMenu(false); });
+    drawer.addEventListener('click', function (e) { if (e.target.closest('a')) toggleMenu(false); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) { toggleMenu(false); btn.focus(); }
+    });
+    var onDesktop = function (e) { if (e.matches) toggleMenu(false); };
+    if (desktop.addEventListener) desktop.addEventListener('change', onDesktop);
+    else if (desktop.addListener) desktop.addListener(onDesktop);
+
+    // ── Indikator geser pada menu desktop ──
+    var menu = nav.querySelector('.hn-menu');
+    var ind = menu ? menu.querySelector('.hn-ind') : null;
+    var links = menu ? Array.prototype.slice.call(menu.querySelectorAll('.hn-link')) : [];
+    var hovering = false;
+
+    function place(el) {
+        if (!ind) return;
+        if (!el || !el.offsetWidth) { ind.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('is-on'); }); return; }
+        ind.style.width = el.offsetWidth + 'px';
+        ind.style.transform = 'translateX(' + el.offsetLeft + 'px)';
+        ind.style.opacity = '1';
+        links.forEach(function (l) { l.classList.toggle('is-on', l === el); });
+    }
+    function activeLink() { return menu ? menu.querySelector('.hn-link.is-active') : null; }
+
+    links.forEach(function (l) {
+        l.addEventListener('mouseenter', function () { hovering = true; place(l); });
+        l.addEventListener('focus', function () { place(l); });
+    });
+    if (menu) menu.addEventListener('mouseleave', function () { hovering = false; place(activeLink()); });
+
+    // ── Efek kaca, penanda bagian aktif, progres baca ──
+    var sections = [];
+    var all = nav.querySelectorAll('.hn-link, .hn-plink');
+    all.forEach(function (a) {
+        var id = (a.getAttribute('href') || '').replace('#', '');
+        var el = id ? document.getElementById(id) : null;
+        if (el && sections.indexOf(el) === -1) sections.push(el);
+    });
+    var progress = document.getElementById('hnProgress');
+    var ticking = false;
+
+    function update() {
+        ticking = false;
+        nav.classList.toggle('is-scrolled', window.scrollY > 24);
+
+        var current = null;
+        sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 140) current = s.id; });
+        all.forEach(function (a) { a.classList.toggle('is-active', current !== null && a.getAttribute('href') === '#' + current); });
+        if (!hovering) place(activeLink());
+
+        if (progress) {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+        }
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', function () { place(activeLink()); update(); });
+    window.addEventListener('load', update);
+    update();
+})();
+</script>
+</header>
+
+
+<!-- ================= HERO SECTION (TIPOGRAFI RAPI & FOTO DI SAMPING) ================= -->
+<section id="beranda" class="relative mx-auto max-w-[1440px] px-5 pb-16 pt-10 md:px-12 md:pt-14 lg:px-16">
+    <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
+        <!-- Kolom Kiri: Teks Mengalir Alami & Rapi (7 Kolom) -->
+        <div class="lg:col-span-7">
+            <!-- Judul Utama Mengalir Alami (Natural Flowing Headline) -->
+            <h1 class="text-3xl font-extrabold tracking-tight text-[#1F0D06] sm:text-4xl md:text-5xl lg:text-[54px] lg:leading-[1.16]">
+                Sebuah ruang independen yang <span class="serif font-normal italic text-[#C4421A]">menghubungkan keberanian warga</span>, keahlian hukum, dan aksi nyata.
+            </h1>
+
+            <p class="mt-6 max-w-[580px] text-base leading-relaxed text-[#5C4336] sm:text-lg lg:mt-8">
+                <strong class="font-bold text-[#1F0D06]">peduli hankam</strong> adalah rumah bagi warga, pegiat muda, dan profesional hukum yang ingin mengambil bagian dalam membela keadilan dan martabat manusia secara nyata, terukur, dan membumi.
+            </p>
+
+            <div class="mt-9 flex flex-wrap items-center gap-4">
+                <a href="#kontak" class="group inline-flex items-center gap-3 rounded-full bg-deep px-7 py-4 text-sm font-bold text-[#FAF7F2] transition hover:bg-[#C4421A] hover:shadow-xl hover:shadow-[#C4421A]/20">
+                    <span>Ambil Bagian Sekarang</span>
+                    <span class="turn-arrow text-lg leading-none">↗</span>
+                </a>
+                <a href="#pilar" class="group inline-flex items-center gap-2.5 rounded-full border bd-line bg-white px-6 py-4 text-sm font-semibold t-ink transition hover:border-[#C4421A] hover:bg-white">
+                    <span>Pelajari 4 Pilar Gerakan</span>
+                    <span class="transition-transform duration-200 group-hover:translate-y-0.5">↓</span>
+                </a>
+            </div>
+
+            <!-- Jaminan Pendampingan di Bawah Tombol -->
+            <div class="mt-9 flex flex-wrap items-center gap-6 border-t bd-line pt-6 text-xs font-semibold t-soft">
+                <div class="flex items-center gap-2">
+                    <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#C4421A]/10 text-[11px] font-bold t-brand">✓</span>
+                    <span>100% Pro-Bono (Bebas Biaya)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#C4421A]/10 text-[11px] font-bold t-brand">✓</span>
+                    <span>Kerahasiaan Identitas Terjamin Penuh</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kolom Kanan: Foto Elegan & Kartu Komitmen Pokok Berdampingan (5 Kolom) -->
+        <div class="lg:col-span-5">
+            <div class="relative">
+                <!-- Frame Foto Utama di Samping Teks (Clean & Editorial) -->
+                <div class="relative overflow-hidden rounded-3xl border bd-line bg-[#E8DDD0] shadow-xl aspect-[4/5] sm:aspect-[3/4] lg:h-[490px] lg:w-full">
+                    <img src="images/hero.jpg"
+                         alt="Kebersamaan dan solidaritas warga"
+                         referrerpolicy="no-referrer"
+                        
+                         class="h-full w-full object-cover" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1025/1200/1400';}">
+                </div>
+
+                <!-- Kartu Komitmen Pokok Berdampingan / Mengambang Halus -->
+                <div class="mt-6 rounded-2xl border bd-line bg-white p-6 shadow-lg sm:p-7 lg:-ml-12 lg:-mt-16 lg:relative lg:z-10 lg:bg-white/95 lg:backdrop-blur-md">
+                    <div class="flex items-center justify-between border-b bd-line pb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider t-brand">Komitmen Pokok</span>
+                        <span class="rounded-full bg-[#F3ECE1] px-2.5 py-0.5 text-[11px] font-semibold t-ink">100% Bebas Biaya</span>
+                    </div>
+                    <blockquote class="serif mt-3 text-lg leading-snug t-ink sm:text-xl">
+                        « Hak bukan hadiah dari penguasa, tapi martabat yang melekat sejak lahir. »
+                    </blockquote>
+                    <div class="mt-4 flex items-center justify-between border-t bd-line pt-3 text-xs font-semibold t-soft">
+                        <span>Pos Dampingan Warga</span>
+                        <a href="#kontak" class="t-brand font-bold hover:underline inline-flex items-center gap-1 group">
+                            <span>Mulai Cerita</span>
+                            <span class="turn-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= METRIK DAMPAK (INSPIRASI STAT BAR SANARA) ================= -->
+<section id="metrik" class="border-y bd-line bg-white py-14">
+    <div class="mx-auto max-w-[1440px] px-5 md:px-12 lg:px-16">
+        <div class="grid grid-cols-1 divide-y bd-line sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
+                            <div class="px-6 py-4 first:pl-0 last:pr-0">
+                    <div class="flex items-baseline gap-1">
+                        <span class="serif text-5xl font-bold tracking-tight t-ink lg:text-6xl counter-val" data-target="120">120</span>
+                                                    <span class="serif text-3xl font-bold t-brand whitespace-pre">+</span>
+                                            </div>
+                    <p class="mt-3 text-xs leading-relaxed t-soft">
+                        Warga yang sudah kami dampingi, tanpa dipungut biaya sepeser pun                    </p>
+                </div>
+                            <div class="px-6 py-4 first:pl-0 last:pr-0">
+                    <div class="flex items-baseline gap-1">
+                        <span class="serif text-5xl font-bold tracking-tight t-ink lg:text-6xl counter-val" data-target="35">35</span>
+                                                    <span class="serif text-3xl font-bold t-brand whitespace-pre">+</span>
+                                            </div>
+                    <p class="mt-3 text-xs leading-relaxed t-soft">
+                        Komunitas dan LBH kampus yang kini tergabung dalam jejaring kami                    </p>
+                </div>
+                            <div class="px-6 py-4 first:pl-0 last:pr-0">
+                    <div class="flex items-baseline gap-1">
+                        <span class="serif text-5xl font-bold tracking-tight t-ink lg:text-6xl counter-val" data-target="100">100</span>
+                                                    <span class="serif text-3xl font-bold t-brand whitespace-pre">%</span>
+                                            </div>
+                    <p class="mt-3 text-xs leading-relaxed t-soft">
+                        Pendampingan pro-bono dan mandiri, identitas pelapor dijaga rapat                    </p>
+                </div>
+                            <div class="px-6 py-4 first:pl-0 last:pr-0">
+                    <div class="flex items-baseline gap-1">
+                        <span class="serif text-5xl font-bold tracking-tight t-ink lg:text-6xl counter-val" data-target="24">24</span>
+                                                    <span class="serif text-3xl font-bold t-brand whitespace-pre"> jam</span>
+                                            </div>
+                    <p class="mt-3 text-xs leading-relaxed t-soft">
+                        Batas waktu kami membalas setiap cerita yang masuk (hari kerja)                    </p>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- ================= MISSION CALLOUT DENGAN FOTO LATAR NYATA ================= -->
+<section class="mx-auto max-w-[1440px] px-5 py-20 md:px-12 md:py-24 lg:px-16">
+    <div class="relative overflow-hidden rounded-[28px] bg-deep-dark px-7 py-16 text-[#FAF7F2] shadow-2xl md:px-16 md:py-20">
+        <!-- Foto Latar Belakang Nyata -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/mission.jpg"
+                 alt="Kemanusiaan"
+                 referrerpolicy="no-referrer"
+                
+                 class="h-full w-full object-cover opacity-35 mix-blend-luminosity" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1600&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1059/1600/900';}">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#200802] via-[#200802]/85 to-[#200802]/60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#FFAC82]">
+                Misi Bersama
+            </span>
+
+            <h2 class="serif mt-6 text-2xl leading-relaxed text-[#FAF7F2] sm:text-3xl md:text-4xl">
+                Misi kami sederhana, tapi pantang dikompromikan: <span class="italic text-[#FFAC82]">menggerakkan dampak nyata bersama warga.</span> Melalui pendampingan awal, pendidikan hukum tanpa bahasa berbelit, dan riset lapangan yang independen, kami mengubah empati menjadi perlindungan konkret.
+            </h2>
+
+            <p class="mt-8 text-base text-[#E5D7C7]/90 sm:text-lg">
+                Orang-orang di ruangan ini sedang menentukan masa depan keadilan di sekitar kita. Apakah kamu salah satunya?
+            </p>
+
+            <div class="mt-10">
+                <a href="#kontak" class="group inline-flex items-center gap-3 rounded-full bg-[#FAF7F2] px-8 py-4 text-sm font-bold t-ink transition hover:bg-[#FFAC82] hover:text-[#1F0D06] shadow-xl">
+                    <span>Menjadi Bagian dari Gerakan Ini</span>
+                    <span class="turn-arrow text-lg leading-none">↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SECTION TENTANG KAMI DENGAN FOTO ================= -->
+<section id="tentang" class="mx-auto max-w-[1440px] px-5 pb-20 md:px-12 md:pb-28 lg:px-16">
+    <div class="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+            <div class="overflow-hidden rounded-3xl border bd-line bg-[#E8DDD0] shadow-lg aspect-[4/5] w-full">
+                <img src="images/about.jpg"
+                     alt="Ruang dialog warga"
+                     referrerpolicy="no-referrer"
+                    
+                     class="h-full w-full object-cover" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1062/1000/1200';}">
+            </div>
+            <div class="mt-4 flex items-center justify-between text-xs t-soft">
+                <span>Dokumentasi visual: Ruang dialog warga</span>
+            </div>
+        </div>
+
+        <div class="lg:col-span-7">
+            <span class="text-xs font-bold uppercase tracking-wider t-brand">Mengapa Kami Berdiri</span>
+            <h2 class="serif mt-3 text-3xl leading-[1.18] t-ink sm:text-4xl lg:text-[46px]">
+                Kepedulian bukan sekadar kata,<br class="hidden sm:inline"> melainkan kerja sunyi yang dirawat bersama.
+            </h2>
+
+            <div class="mt-8 space-y-5 text-base leading-relaxed t-soft">
+                <p>Peduli HAM lahir sebagai rumah bersama bagi siapa saja yang ingin mengambil peran dalam menjaga martabat kemanusiaan lewat langkah yang nyata, terukur, dan membumi.</p>
+                <p>Kami percaya keadilan bukan privilese mereka yang berkuasa atau bermodal semata. Melalui pendampingan langsung tanpa biaya, riset lapangan yang independen, dan pengorganisasian solidaritas di akar rumput, kami bergerak bersama kawan-kawan yang terhimpit agar tak ada satu pun warga yang dibiarkan sendirian.</p>
+            </div>
+
+            <div class="mt-10 rounded-2xl border bd-line bg-white p-6 shadow-sm">
+                <h3 class="serif text-xl font-bold t-ink">Berakar pada Realitas, Bukan Teori Berjarak</h3>
+                <p class="mt-2 text-xs leading-relaxed t-soft">
+                    Kami tidak memposisikan diri sebagai pahlawan, melainkan sebagai kawan seperjalanan yang siap mendengarkan tanpa menghakimi dan menopang saat langkah terasa berat.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 4 FOCUS PILLARS (SANARA GUIDED BY 4 PILLARS) ================= -->
+<section id="pilar" class="border-y bd-line bg-[#F3ECE1]/60 py-20 md:py-28">
+    <div class="mx-auto max-w-[1440px] px-5 md:px-12 lg:px-16">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider t-brand">Struktur Kerja</span>
+                <h2 class="serif mt-3 text-3xl leading-tight t-ink sm:text-4xl lg:text-[46px]">
+                    Peduli Hankam bergerak lewat 4 pilar fokus utama.
+                </h2>
+            </div>
+            <p class="max-w-[420px] text-sm leading-relaxed t-soft">
+                Mengubah gagasan kepedulian menjadi tindakan langsung yang dirawat bersama warga dan jaringan sukarelawan setiap hari.
+            </p>
+        </div>
+
+                <div class="pl-wrap" id="plWrap">
+                            <article class="pl-card is-active" tabindex="0">
+                    <img class="pl-bg" src="images/pilar-1.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"
+                         onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1025/1000/1200';}">
+                    <div class="pl-top">
+                        <span class="pl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.9.2 5 2.4 5 5.8"/></svg></span>
+                        <span class="pl-go" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="pl-body">
+                        <span class="pl-tag">SOLIDARITAS WARGA</span>
+                        <h3 class="pl-title">Aktivasi Komunitas</h3>
+                        <p class="pl-desc">Membangun simpul saling jaga di tingkat tapak agar warga sigap bertindak dan saling melindungi saat krisis terjadi.</p>
+                        <a href="#kontak" class="pl-link"><span>Ketahui langkah ini</span><span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+                            <article class="pl-card " tabindex="0">
+                    <img class="pl-bg" src="images/pilar-2.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"
+                         onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1062/1000/1200';}">
+                    <div class="pl-top">
+                        <span class="pl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.4 5.2 8.2 4.6 5 4.6v12.8c3.2 0 5.4.6 7 1.9 1.6-1.3 3.8-1.9 7-1.9V4.6c-3.2 0-5.4.6-7 1.9z"/><path d="M12 6.5v12.8"/></svg></span>
+                        <span class="pl-go" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="pl-body">
+                        <span class="pl-tag">PENDIDIKAN PUBLIK</span>
+                        <h3 class="pl-title">Literasi Hak Terbuka</h3>
+                        <p class="pl-desc">Menerjemahkan aturan hukum, hak kerja, dan keamanan digital ke dalam bahasa sehari-hari yang mudah dipahami.</p>
+                        <a href="#kontak" class="pl-link"><span>Ketahui langkah ini</span><span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+                            <article class="pl-card " tabindex="0">
+                    <img class="pl-bg" src="images/pilar-3.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"
+                         onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1059/1000/1200';}">
+                    <div class="pl-top">
+                        <span class="pl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 9.5 4.1-1.9 7-5.3 7-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+                        <span class="pl-go" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="pl-body">
+                        <span class="pl-tag">BANTUAN AWAL</span>
+                        <h3 class="pl-title">Pos Bantuan Pro-Bono</h3>
+                        <p class="pl-desc">Ruang aduan dan konsultasi awal bagi warga yang haknya dilanggar. Menjamin 100% bebas biaya, rahasia, dan tanpa stigma.</p>
+                        <a href="#kontak" class="pl-link"><span>Ketahui langkah ini</span><span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+                            <article class="pl-card " tabindex="0">
+                    <img class="pl-bg" src="images/pilar-4.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"
+                         onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1070/1000/1200';}">
+                    <div class="pl-top">
+                        <span class="pl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                        <span class="pl-go" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="pl-body">
+                        <span class="pl-tag">RISET &amp; ADVOKASI</span>
+                        <h3 class="pl-title">Pengawalan Kebijakan</h3>
+                        <p class="pl-desc">Mendokumentasikan fakta di lapangan secara teliti untuk mengawal akuntabilitas publik dan mencegah impunitas berulang.</p>
+                        <a href="#kontak" class="pl-link"><span>Ketahui langkah ini</span><span aria-hidden="true">→</span></a>
+                    </div>
+                </article>
+                    </div>
+    </div>
+</section>
+
+<!-- ================= TESTIMONI DENGAN FOTO TOKOH ================= -->
+<section class="mx-auto max-w-[1440px] px-5 py-20 md:px-12 md:py-24 lg:px-16">
+    <div class="relative overflow-hidden rounded-3xl border bd-line bg-white p-8 md:p-14 shadow-sm">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+            <div class="lg:col-span-8">
+                <span class="text-xs font-bold uppercase tracking-wider t-brand">Catatan Pengamat & Praktisi Lapangan</span>
+                <blockquote class="serif mt-4 text-2xl leading-relaxed t-ink sm:text-3xl">
+                    « Keberanian membela hak asasi manusia bukan dimulai dari pidato megah di panggung, melainkan dari kesediaan untuk duduk mendengarkan mereka yang suaranya sedang disumpal. »
+                </blockquote>
+                <div class="mt-6 flex items-center gap-4">
+                    <img src="images/speaker.jpg"
+                         alt="Ahmad Firdaus, S.H."
+                         referrerpolicy="no-referrer"
+                        
+                         class="h-12 w-12 rounded-full object-cover shadow-sm" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1005/200/200';}">
+                    <div>
+                        <p class="text-sm font-bold t-ink">Ahmad Firdaus, S.H.</p>
+                        <p class="text-xs t-soft">Pendamping Hukum Warga & Peneliti Kebijakan Publik Tapak</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-4 lg:border-l bd-line lg:pl-10">
+                <p class="text-xs font-bold uppercase tracking-wider t-ink">Prinsip Pendampingan</p>
+                <p class="mt-2 text-xs leading-relaxed t-soft">
+                    Peduli HAM bekerja secara non-partisan, independen dari kepentingan elektoral, dan sepenuhnya bertumpu pada martabat korban.
+                </p>
+                <div class="mt-6">
+                    <a href="#tentang" class="inline-flex items-center gap-2 text-xs font-bold t-brand hover:underline">
+                        <span>Baca profil selengkapnya</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= RUANG WICARA (INSPIRASI: CONNECT & CONVERSE SANARA) ================= -->
+<section id="wicara" class="border-t bd-line bg-[#FAF7F2] py-20 md:py-28">
+    <div class="mx-auto max-w-[1440px] px-5 md:px-12 lg:px-16">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-5">
+                <span class="text-xs font-bold uppercase tracking-wider t-brand">Ruang Wicara Terbuka</span>
+                <h2 class="serif mt-3 text-3xl leading-tight t-ink sm:text-4xl">
+                    Pimpin sesi berikutnya: Duduk & Wicara Warga.
+                </h2>
+                <p class="mt-5 text-sm leading-relaxed t-soft">
+                    Pernah mendampingi kasus di lapangan, meneliti ketimpangan sosial, atau memiliki perspektif tentang keadilan yang perlu didengar warga? Kami mengundangmu memimpin sesi diskusi dwimingguan kami.
+                </p>
+
+                <div class="mt-8">
+                    <a href="mailto:peduli.hankam@gmail.com?subject=Pengajuan%20Topik%20Ruang%20Wicara" class="group inline-flex items-center gap-3 rounded-full bg-deep px-6 py-4 text-xs font-bold text-[#FAF7F2] transition hover:bg-[#C4421A]">
+                        <span>Ajukan Topik Diskusi</span>
+                        <span class="turn-arrow text-base">↗</span>
+                    </a>
+                </div>
+
+                <div class="mt-10 border-t bd-line pt-6">
+                    <p class="text-xs font-bold uppercase tracking-wider t-soft">Berbagi bersama kawan jejaring dari:</p>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs font-semibold t-ink">
+                        <span class="rounded-lg bg-[#F3ECE1] px-3 py-1.5">LBH Terbuka</span>
+                        <span class="rounded-lg bg-[#F3ECE1] px-3 py-1.5">Kolektif Riset Warga</span>
+                        <span class="rounded-lg bg-[#F3ECE1] px-3 py-1.5">Serikat Pekerja Kreatif</span>
+                        <span class="rounded-lg bg-[#F3ECE1] px-3 py-1.5">Aliansi Jurnalis Independen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-4">
+                <p class="text-xs font-bold uppercase tracking-wider t-brand">Topik Pembahasan Mendatang & Berjalan</p>
+                                    <div class="rounded-2xl border bd-line bg-white p-6 shadow-sm transition hover:border-[#C4421A]">
+                        <div class="flex items-center justify-between text-xs text-[#8A6753]">
+                            <span class="font-bold uppercase tracking-wider t-brand">Dwi-mingguan #14</span>
+                            <span>Kolektif Keamanan Siber</span>
+                        </div>
+                        <h3 class="serif mt-3 text-xl leading-snug t-ink">
+                            Keamanan Digital Warga: Menghadapi Ancaman Doxing &amp; Teror Siber                        </h3>
+                        <div class="mt-4 flex items-center justify-between pt-4 border-t bd-line text-xs font-bold">
+                            <span class="t-soft">Sesi Daring & Terbuka untuk Umum</span>
+                            <a href="#kontak" class="t-brand hover:underline">Ikuti Sesi ↗</a>
+                        </div>
+                    </div>
+                                    <div class="rounded-2xl border bd-line bg-white p-6 shadow-sm transition hover:border-[#C4421A]">
+                        <div class="flex items-center justify-between text-xs text-[#8A6753]">
+                            <span class="font-bold uppercase tracking-wider t-brand">Dwi-mingguan #15</span>
+                            <span>Kawan Bantuan Hukum</span>
+                        </div>
+                        <h3 class="serif mt-3 text-xl leading-snug t-ink">
+                            Hak Dasar Saat Pemanggilan: Panduan Bersikap Tenang Tanpa Panik                        </h3>
+                        <div class="mt-4 flex items-center justify-between pt-4 border-t bd-line text-xs font-bold">
+                            <span class="t-soft">Sesi Daring & Terbuka untuk Umum</span>
+                            <a href="#kontak" class="t-brand hover:underline">Ikuti Sesi ↗</a>
+                        </div>
+                    </div>
+                                    <div class="rounded-2xl border bd-line bg-white p-6 shadow-sm transition hover:border-[#C4421A]">
+                        <div class="flex items-center justify-between text-xs text-[#8A6753]">
+                            <span class="font-bold uppercase tracking-wider t-brand">Dwi-mingguan #16</span>
+                            <span>Fasilitator Komunitas</span>
+                        </div>
+                        <h3 class="serif mt-3 text-xl leading-snug t-ink">
+                            Etika Mendengar Korban: Membangun Ruang Aman Pemulihan Bersama                        </h3>
+                        <div class="mt-4 flex items-center justify-between pt-4 border-t bd-line text-xs font-bold">
+                            <span class="t-soft">Sesi Daring & Terbuka untuk Umum</span>
+                            <a href="#kontak" class="t-brand hover:underline">Ikuti Sesi ↗</a>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= RISET & CATATAN LAPANGAN (EDITORIAL & BERSIH) ================= -->
+<section id="riset" class="border-t bd-line bg-[#F3ECE1]/60 py-20 md:py-28">
+    <div class="mx-auto max-w-[1440px] px-5 md:px-12 lg:px-16">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider t-brand">Riset & Publikasi</span>
+                <h2 class="serif mt-3 text-3xl leading-tight t-ink sm:text-4xl lg:text-[44px]">
+                    Catatan independen dari lapangan.
+                </h2>
+            </div>
+            <p class="max-w-[380px] text-sm leading-relaxed t-soft">
+                Tulisan, panduan taktis, dan dokumentasi peristiwa agar kesaksian korban tidak terkikis waktu.
+            </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+                            <div class="flex h-full min-h-[410px] flex-col justify-between overflow-hidden rounded-2xl border bd-line bg-white shadow-sm transition hover:border-[#C4421A] hover:shadow-md">
+                    <!-- Gambar Sampul Artikel -->
+                    <div class="relative h-48 w-full overflow-hidden bg-[#E5D7C7]">
+                        <img src="images/riset-1.jpg"
+                             alt="Hak Menolak Pemeriksaan Ilegal: Panduan Konstitusional di Ruang Publik"
+                             referrerpolicy="no-referrer"
+                            
+                             class="h-full w-full object-cover transition-transform duration-300 hover:scale-105" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1070/800/500';}">
+                        <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[9px] font-bold tracking-wider t-brand uppercase shadow-sm">
+                            CATATAN HUKUM                        </span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-[11px] t-soft">Mei 2026 • 5 mnt baca</p>
+                            <h3 class="serif mt-3 text-xl leading-snug t-ink min-h-[56px]">
+                                Hak Menolak Pemeriksaan Ilegal: Panduan Konstitusional di Ruang Publik                            </h3>
+                            <p class="mt-3 text-xs leading-relaxed t-soft">
+                                Penjelasan lugas tentang hak warga saat berhadapan dengan aparat di jalan tanpa surat tugas resmi.                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t bd-line">
+                            <a href="#kontak" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider t-ink hover:text-[#C4421A]">
+                                <span>Baca Dokumen Lengkap</span>
+                                <span class="turn-arrow">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="flex h-full min-h-[410px] flex-col justify-between overflow-hidden rounded-2xl border bd-line bg-white shadow-sm transition hover:border-[#C4421A] hover:shadow-md">
+                    <!-- Gambar Sampul Artikel -->
+                    <div class="relative h-48 w-full overflow-hidden bg-[#E5D7C7]">
+                        <img src="images/riset-2.jpg"
+                             alt="Protokol Saling Jaga: Langkah Cepat Mengamankan Data &amp; Rekan Komunitas"
+                             referrerpolicy="no-referrer"
+                            
+                             class="h-full w-full object-cover transition-transform duration-300 hover:scale-105" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1068/800/500';}">
+                        <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[9px] font-bold tracking-wider t-brand uppercase shadow-sm">
+                            PANDUAN LAPANGAN                        </span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-[11px] t-soft">April 2026 • 7 mnt baca</p>
+                            <h3 class="serif mt-3 text-xl leading-snug t-ink min-h-[56px]">
+                                Protokol Saling Jaga: Langkah Cepat Mengamankan Data &amp; Rekan Komunitas                            </h3>
+                            <p class="mt-3 text-xs leading-relaxed t-soft">
+                                Daftar periksa taktis untuk menjaga privasi pribadi dan keluarga sebelum risiko meluas di ranah digital.                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t bd-line">
+                            <a href="#kontak" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider t-ink hover:text-[#C4421A]">
+                                <span>Baca Dokumen Lengkap</span>
+                                <span class="turn-arrow">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="flex h-full min-h-[410px] flex-col justify-between overflow-hidden rounded-2xl border bd-line bg-white shadow-sm transition hover:border-[#C4421A] hover:shadow-md">
+                    <!-- Gambar Sampul Artikel -->
+                    <div class="relative h-48 w-full overflow-hidden bg-[#E5D7C7]">
+                        <img src="images/riset-3.jpg"
+                             alt="Kerja Sunyi Komunitas: Menata Dapur Mandiri &amp; Posko Rujukan Darurat Warga"
+                             referrerpolicy="no-referrer"
+                            
+                             class="h-full w-full object-cover transition-transform duration-300 hover:scale-105" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1059/800/500';}">
+                        <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[9px] font-bold tracking-wider t-brand uppercase shadow-sm">
+                            SOLIDARITAS TAPAK                        </span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-[11px] t-soft">Maret 2026 • 6 mnt baca</p>
+                            <h3 class="serif mt-3 text-xl leading-snug t-ink min-h-[56px]">
+                                Kerja Sunyi Komunitas: Menata Dapur Mandiri &amp; Posko Rujukan Darurat Warga                            </h3>
+                            <p class="mt-3 text-xs leading-relaxed t-soft">
+                                Refleksi pendampingan lapangan tentang kekuatan modal sosial warga ketika instrumen formal berjarak.                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t bd-line">
+                            <a href="#kontak" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider t-ink hover:text-[#C4421A]">
+                                <span>Baca Dokumen Lengkap</span>
+                                <span class="turn-arrow">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- ================= TANYA JAWAB WARGA (FAQ JUJUR & TERSTRUKTUR) ================= -->
+<section id="faq" class="mx-auto max-w-[1440px] px-5 py-20 md:px-12 md:py-28 lg:px-16">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+            <span class="text-xs font-bold uppercase tracking-wider t-brand">Tanya Jawab</span>
+            <h2 class="serif mt-3 text-3xl leading-tight t-ink sm:text-4xl">
+                Hal yang kerap ditanyakan sebelum berkonsultasi.
+            </h2>
+            <p class="mt-5 text-sm leading-relaxed t-soft">
+                Wajar merasa ragu dan cemas sebelum bercerita. Kami menjaga proses pendampingan tetap transparan, manusiawi, dan bebas dari prosedur berbelit.
+            </p>
+        </div>
+
+        <div class="lg:col-span-7 space-y-4">
+                            <div class="faq-card rounded-2xl border bd-line bg-white p-6 shadow-sm transition">
+                    <button type="button" class="faq-trigger flex w-full items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-3 pr-4">
+                            <span class="serif text-base italic font-bold t-brand">01</span>
+                            <span class="text-base font-bold t-ink">Apakah seluruh pendampingan di Peduli HAM benar-benar bebas biaya?</span>
+                        </div>
+                        <span class="faq-cross flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F3ECE1] text-base font-bold t-ink">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-drawer">
+                        <p class="pt-4 text-sm leading-relaxed t-soft border-t bd-line mt-4">
+                            Ya, 100% tanpa biaya. Seluruh pos pengaduan, konsultasi awal, dan pendampingan kasus dilakukan secara pro-bono demi memastikan hak atas keadilan tidak terhalang persoalan ekonomi.                        </p>
+                    </div>
+                </div>
+                            <div class="faq-card rounded-2xl border bd-line bg-white p-6 shadow-sm transition">
+                    <button type="button" class="faq-trigger flex w-full items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-3 pr-4">
+                            <span class="serif text-base italic font-bold t-brand">02</span>
+                            <span class="text-base font-bold t-ink">Bagaimana kerahasiaan identitas dan data cerita saya dilindungi?</span>
+                        </div>
+                        <span class="faq-cross flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F3ECE1] text-base font-bold t-ink">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-drawer">
+                        <p class="pt-4 text-sm leading-relaxed t-soft border-t bd-line mt-4">
+                            Kerahasiaan adalah prinsip mutlak kami. Kami menerapkan enkripsi pada jalur komunikasi posko, tidak pernah merilis kronologi ke publik tanpa persetujuan tertulis, dan Anda memegang kendali penuh.                        </p>
+                    </div>
+                </div>
+                            <div class="faq-card rounded-2xl border bd-line bg-white p-6 shadow-sm transition">
+                    <button type="button" class="faq-trigger flex w-full items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-3 pr-4">
+                            <span class="serif text-base italic font-bold t-brand">03</span>
+                            <span class="text-base font-bold t-ink">Apakah saya harus menyiapkan bukti hukum lengkap sebelum berkonsultasi?</span>
+                        </div>
+                        <span class="faq-cross flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F3ECE1] text-base font-bold t-ink">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-drawer">
+                        <p class="pt-4 text-sm leading-relaxed t-soft border-t bd-line mt-4">
+                            Tidak perlu. Ceritakan saja apa yang Anda alami. Kawan pendamping akan mendengarkan, membantu merapikan kronologi fakta, dan memetakan langkah perlindungan secara bertahap.                        </p>
+                    </div>
+                </div>
+                            <div class="faq-card rounded-2xl border bd-line bg-white p-6 shadow-sm transition">
+                    <button type="button" class="faq-trigger flex w-full items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-3 pr-4">
+                            <span class="serif text-base italic font-bold t-brand">04</span>
+                            <span class="text-base font-bold t-ink">Bagaimana cara bergabung sebagai relawan atau pengisi Ruang Wicara?</span>
+                        </div>
+                        <span class="faq-cross flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F3ECE1] text-base font-bold t-ink">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-drawer">
+                        <p class="pt-4 text-sm leading-relaxed t-soft border-t bd-line mt-4">
+                            Pintu posko selalu terbuka bagi warga, mahasiswa, praktisi hukum, maupun peneliti independen. Silakan gunakan tombol &quot;Ajukan Topik Diskusi&quot; atau hubungi kami lewat email narahubung.                        </p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- ================= TIM KAWAN GERAKAN (JIKA ADA DATA) ================= -->
+
+<!-- ================= CLOSING CTA DENGAN FOTO LATAR NYATA ================= -->
+<section id="kontak" class="mx-auto max-w-[1440px] px-5 py-12 md:px-12 md:py-20 lg:px-16">
+    <div class="relative overflow-hidden rounded-[28px] bg-deep px-7 py-14 text-[#FAF7F2] shadow-2xl md:px-16 md:py-18">
+        <!-- Background Foto Solidaritas Terlihat Jelas -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/cta.jpg"
+                 alt="Solidaritas warga"
+                 referrerpolicy="no-referrer"
+                
+                 class="h-full w-full object-cover opacity-30 mix-blend-luminosity" onerror="var t=this;if(!t.dataset.f){t.dataset.f=1;t.src='https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1600&q=80';}else{t.onerror=null;t.src='https://picsum.photos/id/1025/1600/900';}">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#4D1204] via-[#4D1204]/90 to-[#4D1204]/75"></div>
+        </div>
+
+        <div class="relative z-10 grid gap-10 lg:grid-cols-12 lg:items-end">
+            <div class="lg:col-span-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#FFAC82]">
+                    Jangan Berhenti Di Sini
+                </span>
+                <h2 class="serif mt-4 text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-[52px] text-[#FAF7F2]">
+                    Jangan biarkan kepedulianmu<br>
+                    <em class="italic text-[#FFAC82]">hanya berhenti sebagai gumaman di media sosial.</em>
+                </h2>
+                <p class="mt-6 max-w-[560px] text-sm leading-relaxed text-[#E5D7C7] sm:text-base">
+                    Ratusan warga, pegiat hukum, dan mahasiswa telah berjejaring di dalam gerakan ini. Pintu posko selalu terbuka untuk ceritamu, tenagamu, dan keahlianmu.
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-2 text-xs font-semibold">
+                    <span class="rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-[#FAF7F2]">Butuh Pendampingan Kasus</span>
+                    <span class="rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-[#FAF7F2]">Ingin Jadi Relawan / Mentor</span>
+                    <span class="rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-[#FAF7F2]">Kolaborasi Riset Lapangan</span>
+                </div>
+            </div>
+
+            <!-- Kartu Salin Email -->
+            <div class="lg:col-span-4">
+                <div class="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-md">
+                    <p class="text-xs font-semibold text-[#FFAC82]">Kirim pesan langsung ke narahubung posko:</p>
+                    <p class="mt-1 font-mono text-sm font-bold text-white break-all select-all">peduli.hankam@gmail.com</p>
+
+                    <div class="mt-5 space-y-3">
+                        <a href="mailto:peduli.hankam@gmail.com" class="group flex w-full items-center justify-between rounded-xl bg-[#FAF7F2] px-5 py-3.5 text-xs font-bold t-ink hover:bg-white shadow-md transition">
+                            <span>Buka di Aplikasi Email</span>
+                            <span class="turn-arrow text-base">↗</span>
+                        </a>
+
+                        <button id="copyEmailTrigger" data-email="peduli.hankam@gmail.com" type="button" class="flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-transparent px-4 py-3 text-xs font-semibold text-[#FAF7F2] hover:bg-white/10 transition-colors">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>
+                            <span>Salin Alamat Email</span>
+                        </button>
+                    </div>
+
+                    <p class="mt-4 text-[11px] text-[#E5D7C7]/80">
+                        Respons dikirimkan maksimal 24 jam kerja demi keamanan bersama.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-deep-dark text-[#E5D7C7]">
+    <div class="mx-auto max-w-[1440px] px-5 py-14 md:px-12 lg:px-16">
+        <div class="grid gap-10 lg:grid-cols-12">
+            <div class="lg:col-span-5">
+                <a href="#beranda" class="inline-flex items-center gap-3">
+                    <span class="serif text-2xl text-[#FAF7F2]">peduli hankam<span class="t-brand">.</span></span>
+                </a>
+                <p class="mt-4 max-w-[420px] text-sm leading-relaxed text-[#E5D7C7]/80">Platform independen yang menghubungkan kepedulian warga, advokasi hukum, dan aksi nyata demi menjaga martabat setiap manusia.</p>
+            </div>
+            <div class="lg:col-span-3">
+                <p class="text-xs font-bold uppercase tracking-wider text-[#FFAC82]">Jelajahi</p>
+                <ul class="mt-4 space-y-2.5 text-sm">
+                    <li><a class="hover:text-white" href="#tentang">Tentang</a></li>
+                    <li><a class="hover:text-white" href="#metrik">Dampak</a></li>
+                    <li><a class="hover:text-white" href="#pilar">4 Pilar</a></li>
+                    <li><a class="hover:text-white" href="#wicara">Ruang Wicara</a></li>
+                    <li><a class="hover:text-white" href="#riset">Riset</a></li>
+                    <li><a class="hover:text-white" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="lg:col-span-4">
+                <p class="text-xs font-bold uppercase tracking-wider text-[#FFAC82]">Narahubung</p>
+                <a href="mailto:peduli.hankam@gmail.com" class="mt-4 inline-block break-all font-mono text-sm font-bold text-white hover:underline">peduli.hankam@gmail.com</a>
+                <p class="mt-3 text-xs leading-relaxed text-[#E5D7C7]/70">Respons dikirimkan maksimal 24 jam kerja demi keamanan bersama.</p>
+            </div>
+        </div>
+        <div class="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-[#E5D7C7]/60 sm:flex-row sm:justify-between">
+            <span>&copy; 2026 Peduli Hankam. Seluruh hak dilindungi.</span>
+            <span>Independen &middot; Pro-Bono &middot; Rahasia terjaga</span>
+        </div>
+    </div>
+</footer>
+
+<!-- Toast Notifikasi Salin Email -->
+<div id="toastNotification" class="pointer-events-none fixed bottom-6 right-6 z-[80] translate-y-4 rounded-xl bg-[#1F0D06] px-4 py-3 text-xs font-semibold text-[#FAF7F2] opacity-0 shadow-2xl transition-all duration-300">
+    ✓ Alamat email posko berhasil disalin!
+</div>
+
+<!-- ================= SCRIPT INTERAKSI & METRIK ================= -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // 1. Counter Angka Metrik Berjalan
+        const easeOut = t => 1 - Math.pow(1 - t, 3);
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                counterObserver.unobserve(el);
+                if (isNaN(target)) return;
+                const duration = 1600;
+                const start = performance.now();
+                const tick = (now) => {
+                    const t = Math.min(1, (now - start) / duration);
+                    el.textContent = Math.round(target * easeOut(t));
+                    if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-val').forEach(c => {
+            if (!prefersReduced) c.textContent = '0';
+            if (prefersReduced) { counterObserver.unobserve(c); return; }
+            counterObserver.observe(c);
+        });
+
+        // 2. Scroll Progress Bar (navbar diurus oleh file navbar sendiri)
+        const scrollBar = document.getElementById('scrollBar');
+        let ticking = false;
+
+        function onScrollUpdate() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollBar && docHeight > 0) {
+                scrollBar.style.width = Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) + '%';
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(onScrollUpdate);
+            }
+        }, { passive: true });
+        onScrollUpdate();
+
+        // Panel Struktur Kerja (desktop: panel yang disentuh membuka)
+        const plCards = Array.from(document.querySelectorAll('.pl-card'));
+        const plDesktop = window.matchMedia('(min-width: 1024px)');
+        const plActivate = (c) => plCards.forEach(x => x.classList.toggle('is-active', x === c));
+        plCards.forEach(c => {
+            ['mouseenter', 'focusin', 'click'].forEach(ev => c.addEventListener(ev, () => { if (plDesktop.matches) plActivate(c); }));
+        });
+
+        // 3. Accordion FAQ
+        document.querySelectorAll('.faq-card').forEach(card => {
+            const trigger = card.querySelector('.faq-trigger');
+            if (!trigger) return;
+            trigger.addEventListener('click', () => {
+                const isOpen = card.classList.contains('open');
+                document.querySelectorAll('.faq-card').forEach(other => {
+                    if (other !== card) other.classList.remove('open');
+                });
+                card.classList.toggle('open', !isOpen);
+                trigger.setAttribute('aria-expanded', !isOpen);
+            });
+        });
+
+        // 4. Tombol Salin Email dengan Toast
+        const copyBtn = document.getElementById('copyEmailTrigger');
+        const toast = document.getElementById('toastNotification');
+
+        if (copyBtn && toast) {
+            copyBtn.addEventListener('click', () => {
+                const email = copyBtn.getAttribute('data-email');
+                if (!email) return;
+
+                navigator.clipboard.writeText(email).then(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        toast.style.opacity = '0';
+                        toast.style.transform = 'translateY(16px)';
+                    }, 2800);
+                }).catch(() => {
+                    alert('Email: ' + email);
+                });
+            });
+        }
+    });
+</script>
+</body>
+</html>

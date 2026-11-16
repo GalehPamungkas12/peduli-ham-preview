@@ -1,0 +1,16 @@
+Taruh foto Anda di folder ini dengan nama berikut. Kalau file ada, halaman memakainya;
+kalau tidak ada, halaman otomatis memakai foto online (butuh internet).
+
+logo.png      Logo (navbar & ikon tab). Disarankan PNG transparan, tinggi >= 120 px
+hero.jpg      Foto utama bagian atas (rasio 4:5), min. 1200 px
+about.jpg     Foto bagian "Mengapa Kami Berdiri" (rasio 4:5)
+mission.jpg   Latar bagian "Misi Bersama" (lebar), min. 1600 px
+cta.jpg       Latar bagian penutup (lebar), min. 1600 px
+speaker.jpg   Foto bulat narasumber (persegi), min. 200 px
+pilar-1.jpg   Struktur Kerja: Aktivasi Komunitas (potret), min. 1000 px
+pilar-2.jpg   Struktur Kerja: Literasi Hak Terbuka
+pilar-3.jpg   Struktur Kerja: Pos Bantuan Pro-Bono
+pilar-4.jpg   Struktur Kerja: Pengawalan Kebijakan
+riset-1.jpg   Sampul artikel riset 1 (rasio 16:10), min. 800 px
+riset-2.jpg   Sampul artikel riset 2
+riset-3.jpg   Sampul artikel riset 3
